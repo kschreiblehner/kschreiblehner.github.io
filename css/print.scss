@@ -22,6 +22,10 @@ $bg-dark: #333;
 $bg-light: #ddd;
 
 /* BASIC LAYOUT*/
+.outer-wrapper::before {
+  content: 'This print version is optimized for Google Chrome browser. Use Google Chrome for best experience.';
+}
+
 .outer-wrapper {
   max-width: 1200px;
   margin: 0 auto;
