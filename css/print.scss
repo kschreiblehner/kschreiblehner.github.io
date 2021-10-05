@@ -1,6 +1,17 @@
+/*
+  ----------------------------------
+  PRINT VERSION OPTIMIZED FOR CHROME
+  ----------------------------------
+*/
+
 @import 'reset';
 
 @import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+@page {
+  size: A4; /* DIN A4 standard, Europe */
+  margin: 20mm;
+}
 
 /* VARIABLES */
 $font-color-dark: #333;
@@ -15,36 +26,21 @@ $bg-light: #ddd;
   max-width: 1200px;
   margin: 0 auto;
   padding-bottom: 3rem;
-  display: grid;
-  grid-template-columns: 3fr 6fr;
-  gap: 2rem;
-
-  header {
-    grid-column: 1 / 3;
-  }
 
   aside {
-    display: grid;
-    grid-template-rows: auto;
-    align-content: start;
-    row-gap: 2rem;
-
-    section {
-      display: grid;
-      grid-template-rows: auto;
-      row-gap: 2rem;
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .contact > * {
+        margin-bottom: 1rem;
+      }
     }
   }
 
   main {
-    display: grid;
-    grid-template-rows: auto;
-    row-gap: 4rem;
-
     section {
-      display: grid;
-      grid-template-rows: auto;
-      row-gap: 2rem;
+      margin-bottom: 2rem;
     }
   }
 }
@@ -64,7 +60,7 @@ $bg-light: #ddd;
   display: block;
   grid-column: 1 / span 2;
   width: 60%;
-  margin: 1rem auto 0; // 1rem top correction for card row-gap and section row-gap
+  margin: 1rem auto 2rem; 
   border-bottom: 1px solid $font-color-light;
 }
 
@@ -98,6 +94,11 @@ h3 {
   font-weight: 200;
 }
 
+html {
+  width: 210mm;
+  height: 297mm;
+}
+
 body {
   font-family: 'Muli', sans-serif;
   font-weight: 200;
@@ -126,21 +127,14 @@ main {
   }
 }
 
-aside {
-  padding-left: 2rem;
-}
-
-main {
-  padding-right: 2rem;
-}
-
 .profile {
   .contact {
-    display: grid;
-    grid-template-columns: auto auto;
-    align-items: center;
-    row-gap: 1rem;
     color: $font-color-light;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     address {
       font-style: normal;
@@ -162,7 +156,6 @@ main {
   }
 
   img {
-    justify-self: center;
     max-height: 200px;
     width: auto;
     border-radius: 50%;
@@ -216,9 +209,7 @@ main {
   max-width: 1200px;
   margin: 0 auto;
   padding-bottom: 3rem;
-  display: grid;
-  grid-template-columns: 100%;
-  gap: 2rem;
+  margin: 2rem;
 
   header {
     grid-column: unset;
@@ -233,21 +224,45 @@ main {
 }
 
 aside {
-  padding: 0 2rem;
+  // padding: 0 2rem;
+  .profile {
+    > * {
+      margin-bottom: 2rem;
+    }
+
+    img {
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+  }
 }
 
 main {
-  padding: 0 2rem 5rem;
-}
-
-.contact {
-  .icon-wrapper {
-    justify-self: center;
-    grid-column: 1 / span 2;
+  section {
+    h3 {
+      margin-bottom: 2rem;
+    }
   }
 }
 
 .icon-wrapper + span {
   text-align: center;
-  grid-column: 1 / span 2;
+}
+
+/* Hardcoded page breaks */
+.programming {
+  page-break-before: always;
+}
+
+main {
+  section {
+    page-break-before: always;
+  }
+
+  .job-history {
+    > :nth-child(5),
+    > :nth-child(8) {
+      page-break-before: always;
+    }
+  }
 }
