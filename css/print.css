@@ -271,8 +271,8 @@ main section {
   page-break-before: always;
 }
 
-main .job-history > :nth-child(5),
+/* main .job-history > :nth-child(5),
 main .job-history > :nth-child(8) {
   page-break-before: always;
-}
+} */
 /*# sourceMappingURL=print.css.map */
